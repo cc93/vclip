@@ -3,7 +3,7 @@ A [Vue.js](http://cn.vuejs.org/) component for clips playing and controlling.
 You can play or paused the clip, set fps and playing section, go directly to certain frame and so on.
 
 ## Demo
-[vclip.html]()
+[vclip.html](https://cc93.github.io/ccjs/vclip/demo/vclip.html)
 
 ## Usage
 * import vue.js and vclip.bundle.js, then declare the vclip component in your root vue instance:
