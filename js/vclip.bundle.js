@@ -413,10 +413,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	            type: Boolean,
 	            default: true
 	        },
-	        speed: {
+	        fps: {
 	            type: Number,
-	            default: 300
-	        },
+	            default: 3 },
 	        loop: {
 	            type: Boolean,
 	            default: true
@@ -442,6 +441,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    },
 	    data: function data() {
 	        return {
+	            speed: 300,
 	            eles: [],
 	            frameWidth: 0,
 	            frameHeight: 0,
@@ -456,6 +456,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    },
 	    methods: {
 	        initData: function initData() {
+	            this.speed = 1000 / this.fps;
+
 	            this.eles = this.$els.wrapper.children;
 	            this.totalFrames = this.eles.length;
 
@@ -570,7 +572,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	                scale = newWidth / maxWidth;
 	                this.eles[i].style.transform = 'scale(' + scale + ')';
 	            }
-	            this.$emit('on-resized');
 	        },
 	        exposeAPI: function exposeAPI() {
 	            this.api.goFrame = this.goFrame;
@@ -601,12 +602,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	            }
 	            this.$emit('on-play-changed', this.play);
 	        },
-	        'speed': function speed(val) {
+	        'fps': function fps(val) {
+	            this.speed = 1000 / val;
 	            if (this.play) {
 	                this.stopPlay();
 	                this.startPlay();
 	            }
-	            this.$emit('on-speed-changed', this.speed);
+	            this.$emit('on-fps-changed', this.fps);
 	        }
 	    }
 	};

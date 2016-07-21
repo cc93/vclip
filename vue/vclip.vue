@@ -59,9 +59,9 @@
                 type: Boolean,
                 default: true
             },
-            speed: {
+            fps: {        //3fps = 333ms/f
                 type: Number,
-                default: 300
+                default: 3      //fps
             },
             loop: {
                 type: Boolean,
@@ -88,6 +88,7 @@
         },
         data: function () {
             return {
+                speed: 300,
                 eles: [],
                 frameWidth: 0,
                 frameHeight: 0,
@@ -102,6 +103,8 @@
         },
         methods: {
             initData: function () {
+                //fps to speed(ms/f)
+                this.speed = 1000/this.fps;
                 //totalFrames
                 this.eles = this.$els.wrapper.children;
                 this.totalFrames = this.eles.length;
@@ -220,7 +223,6 @@
                     scale = newWidth / maxWidth;
                     this.eles[i].style.transform  = 'scale(' + scale + ')';
                 }
-                this.$emit('on-resized');
             },
             exposeAPI: function () {          //暴露出想给父组件使用的属性和方法
                 this.api.goFrame = this.goFrame;
@@ -252,12 +254,13 @@
                 }
                 this.$emit('on-play-changed', this.play);
             },
-            'speed': function (val) {
+            'fps': function (val) {
+                this.speed = 1000/val;      //更新speed, 因为interval要用到
                 if (this.play) {             //如果play正在进行,则重启interval才能使新的speed生效
                     this.stopPlay();
                     this.startPlay();
                 }
-                this.$emit('on-speed-changed', this.speed);
+                this.$emit('on-fps-changed', this.fps);
             }
         }
     };

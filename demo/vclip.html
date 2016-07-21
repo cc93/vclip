@@ -52,7 +52,7 @@
             transform: scale(1);
         }
 
-        .set-speed, .go-frame {
+        .set-fps, .go-frame {
             margin: 5px;
             background-color: skyblue;
             color: white;
@@ -66,7 +66,7 @@
             border: none;
         }
 
-        #input-speed, #input-frame {
+        #input-fps, #input-frame {
             background-color: lightskyblue;
             width: 50px;
             color: white;
@@ -75,7 +75,7 @@
             border: none;
         }
 
-        #input-speed:hover {
+        #input-fps:hover , #input-frame :hover {
             transform: scale(1.1);
             box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
         }
@@ -90,8 +90,8 @@
 </head>
 <body>
 
-<vclip class="vclip1" :resize="false" :play-section="[]" :api="vclip1.api"
-       :play.sync="vclip1.play" :loop="vclip1.loop" :speed.sync="vclip1.speed"
+<vclip class="vclip1" :play.sync="vclip1.play" :loop="vclip1.loop" :fps.sync="vclip1.fps"
+       :resize="false" :play-section="[]" :api="vclip1.api"
        @on-frame-changed="frameChanged">
     <div class="vclip-frame">
         <div class="icon-02_child_01"></div>
@@ -149,10 +149,10 @@
     </tr>
     <tr>
         <td>
-            <div class="set-speed">
-                <label for="input-speed">speed:</label>
-                <input id="input-speed" name="speed" type="number" :value="vclip1.speed" v-model="input.speed"
-                       @change="vclip1.speed=parseInt(input.speed);" lazy>
+            <div class="set-fps">
+                <label for="input-fps">fps:</label>
+                <input id="input-fps" name="fps" type="number" :value="vclip1.fps" v-model="input.fps"
+                       @change="vclip1.fps=parseInt(input.fps);" lazy>
             </div>
         </td>
         <td>
@@ -181,7 +181,7 @@
                     currentFrame: 1,
                     play: true,
                     loop: true,
-                    speed: 500,          //api属性将在子组件中赋值
+                    fps: 3,          //api属性将在子组件中赋值
                     api: {}
                 },
                 input: {}
@@ -194,6 +194,5 @@
             ready: function () {
             }
         });
-
 </script>
 </html>
