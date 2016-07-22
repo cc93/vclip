@@ -1,12 +1,12 @@
 # vclip
-A [Vue.js](http://cn.vuejs.org/) component for clip playing and controlling.
-Play or paused, set speed and play-section, go any frame directly. 
+A [Vue.js](http://cn.vuejs.org/) component for clips playing and controlling.
+You can play or paused the clip, set fps and playing section, go directly to certain frame and so on.
 
 ## Demo
-[vclip.html]()
+[vclip.html](https://cc93.github.io/ccjs/vclip/demo/vclip.html)
 
 ## Usage
-* include vue.js and vclip.bundle.js,then declare the vclip component in your root vue instance:
+* import vue.js and vclip.bundle.js, then declare the vclip component in your root vue instance:
 ```javascript
 <script src="../js/vue.js"></script>
 <script src="../js/vclip.bundle.js"></script>
@@ -35,7 +35,7 @@ Play or paused, set speed and play-section, go any frame directly.
         </vclip>
 ```
 * a complex usage with more options:
-````html
+```html
         <vclip class="vclip1" :play.sync="vclip1.play" :loop="vclip1.loop" :speed.sync="vclip1.speed"
        :resize="false" :play-section="[]" :api="vclip1.api"
        @on-frame-changed="frameChanged">
@@ -56,25 +56,25 @@ Play or paused, set speed and play-section, go any frame directly.
                <img class=" child" src="../img/10_child_04.png">
            </div>
        </vclip>
-````
-* just as the above show, both images and sprite images can be used in the frame content,
-do not lose the div node whose class name is 'vclip-frame'
+```
+* just as the above shows, both images and sprite images can be used in the frame content,
+* write your frame content in this part:```html  <div class="vclip-frame"> content </div> ```,and do not omit it! 
 
 ## API
 ### Properties
 
 | Name  |   Type    |   Default |   Desciption  |
 |-------|-----------|-----------|---------------|   
-| `play`  |   Boolean |   true    | play or pause the clip|
-| `loop`  |   Boolean |   true    | set the clip playing once or loop|
-| `fps` |   Number  |    3     | frame per second |
-| `resize` | Boolean |  false  | auto scale the frame content to fill in the frame container |
-| `play-section` | Array | [ ]  | set certain frames to be played |
+| **play**  |   Boolean |   true    | play or pause the clip|
+| **loop**  |   Boolean |   true    | set the clip playing once or loop|
+| **fps** |   Number  |    3     | frame per second |
+| **resize** | Boolean |  false  | auto scale the frame content to fill in the frame container |
+| **play-section** | Array | [ ]  | set certain frames to be played |
  
 ### Methods
 
 | Name  | Arguments | Description | 
-|---|-|-|
+|-------|-----------|-------------|
 | nextFrame  | null | next frame |
 | prevFrame  | null | previous frame |
 | goFrame | Number frame | go to Frame 'Number'|
@@ -82,7 +82,7 @@ do not lose the div node whose class name is 'vclip-frame'
 ### Events
 
 | Name | Parameters | Description | 
-|---|-|-|
+|------|------------|-------------|
 | on-play-start  | Number currentFrame | clip starts |
 | on-play-stop   | Number currentFrame | clip stops |
 | on-frame-changed | Number currentFrame | frame changed |
@@ -94,7 +94,7 @@ do not lose the div node whose class name is 'vclip-frame'
 * play-section
 
 | play-section  | play-frames |
-|---|-|
+|---------------|-------------|
 | null  | 1 ~ end |
 | [2]   | 2 |
 | [2,5] | 2 ~ 5 |
