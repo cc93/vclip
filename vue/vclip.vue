@@ -236,9 +236,9 @@
             this.exposeAPI();
             if (this.resize) {
                 var me = this;      //要等资源加载完成后才能得到正确的frame元素宽高,尤其是img加载
-                window.addEventListener('load',function(){
+                setTimeout(function(){
                     me.resizeContent();
-                });
+                },100);
             }
             if (this.play) {
                 this.startPlay();

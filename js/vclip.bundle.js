@@ -44,7 +44,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "/js/";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -617,7 +617,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 6 */
 /***/ function(module, exports) {
 
-	module.exports = "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<div :class=\"['vclip-container',class == ''? 'vclip-container-size': class]\" v-el:container>\n    <div class=\"vclip-wrapper\"\n         v-el:wrapper\n         :style=\"{transform: 'translate3d(' + translateX + 'px, 0, 0)'}\"\n         >\n        <slot></slot>\n    </div>\n</div>\n";
+	module.exports = "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<div :class=\"['vclip-container',class == ''? 'vclip-container-size': class]\" v-el:container>\n    <div class=\"vclip-wrapper\"\n         v-el:wrapper\n         :style=\"{transform: 'translate3d(' + translateX + 'px, 0, 0)'}\"\n         >\n        <p> 这是控制台 </p>\n\n        <slot></slot>\n    </div>\n</div>\n";
 
 /***/ }
 /******/ ])

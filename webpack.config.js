@@ -4,17 +4,13 @@ module.exports = {
     entry: './vue/vclip.vue',
     output: {
         path: './js',
+        publicPath: 'js',
         filename: 'vclip.bundle.js',
         library: 'VClip',
         libraryTarget: 'umd'
     },
     module: {
         loaders: [
-            //{
-            //    test: /\.jsx?$/,
-            //    exclude: /node_modules/,
-            //    loader: 'babel',
-            //},
             {
                 test: /\.vue$/,
                 loader: 'vue'
@@ -31,4 +27,4 @@ module.exports = {
         //    },
         //}),
     ]
-}
+};
